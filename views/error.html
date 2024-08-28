@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}</title>
+    <link rel="stylesheet" href="/dist/index.bundle.css">
+</head>
+
+<body>
+    <div class="box">
+        <div class="box-middle">
+            <div class="header-box">
+                <div class="title">
+                    <span>{{ title }}</span>
+                </div>
+                <div class="description">
+                    <span>{{ description }}</span>
+                </div>
+            </div>
+            <div class="body-box" hidden>
+                <div class="http-container">
+                    <div class="block-header">
+                        <div class="block-title">
+                            <span>{{ language }}</span>
+                        </div>
+                    </div>
+                    <div class="block-body">
+                        <pre><code>{{ code_html }}</code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-box" hidden>
+                <div class="hint-box content-container">
+                    <div class="text"><span>{{ hint }}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}</title>
+    <link rel="stylesheet" href="/dist/index.lv0.bundle.css">
+    <script type="text/javascript" src="/dist/index.lv0.bundle.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box-middle">
+            <div class="header-box">
+                <div class="title">
+                    <span>{{ title }}</span>
+                </div>
+                <div class="description content-container">
+                    <div class="text"><span>{{ description }}</span></div>
+                </div>
+            </div>
+            <div class="body-box">
+                <div class="http-container">
+                    <div class="block-header">
+                        <div class="block-title">
+                            <span>{{ language }}</span>
+                        </div>
+                        <div class="block-btn-container">
+                            <div class="block-btn tooltip" data-click="copy" data-tooltip="Copy">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100%"
+                                    height="100%" fill="currentColor">
+                                    <path
+                                        d="M853.333333 981.333333h-384c-72.533333 0-128-55.466667-128-128v-384c0-72.533333 55.466667-128 128-128h384c72.533333 0 128 55.466667 128 128v384c0 72.533333-55.466667 128-128 128z m-384-554.666666c-25.6 0-42.666667 17.066667-42.666666 42.666666v384c0 25.6 17.066667 42.666667 42.666666 42.666667h384c25.6 0 42.666667-17.066667 42.666667-42.666667v-384c0-25.6-17.066667-42.666667-42.666667-42.666666h-384z">
+                                    </path>
+                                    <path
+                                        d="M213.333333 682.666667H170.666667c-72.533333 0-128-55.466667-128-128V170.666667c0-72.533333 55.466667-128 128-128h384c72.533333 0 128 55.466667 128 128v42.666666c0 25.6-17.066667 42.666667-42.666667 42.666667s-42.666667-17.066667-42.666667-42.666667V170.666667c0-25.6-17.066667-42.666667-42.666666-42.666667H170.666667c-25.6 0-42.666667 17.066667-42.666667 42.666667v384c0 25.6 17.066667 42.666667 42.666667 42.666666h42.666666c25.6 0 42.666667 17.066667 42.666667 42.666667s-17.066667 42.666667-42.666667 42.666667z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-body">
+                        <pre><code>{{ code_html }}</code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-box">
+                <div class="hint-box content-container">
+                    <div class="text"><span>{{ hint }}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="black-box hide" data-black-box>
+        <span class="none-display" data-flag="{{ flag }}"></span>
+        <div class="hide-content" data-control>
+            <div class="text-container">
+                <div class="text__content" data-content><span class="span-line">{{ initial_text }}</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

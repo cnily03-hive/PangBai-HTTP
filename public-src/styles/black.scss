@@ -1,0 +1,119 @@
+@import "./justify.scss";
+
+.none-display {
+    display: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 1);
+}
+
+@font-face {
+    font-family: "FZLanTingHeiS Medium";
+    src: local("FZLanTingHeiS Medium"), url("@fonts/FZLanTingHeiS-Medium.ttf") format("truetype"),
+        url("@fonts/FZLanTingHeiS-Medium.woff") format("woff"), url("@fonts/FZLanTingHeiS-Medium.woff2") format("woff2"),
+        url("@fonts/FZLanTingHeiS-Medium.eot") format("embedded-opentype"),
+        url("@fonts/FZLanTingHeiS-Medium.svg") format("svg");
+}
+
+.black-box {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    pointer-events: auto;
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+
+    &.hide {
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    // text-container
+    .text-container {
+        box-sizing: border-box;
+        padding: 1rem 1.5rem;
+        position: relative;
+        z-index: 30;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgba(255, 255, 255, 1);
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    // control layer
+    [data-control] {
+        opacity: 1;
+        transition: opacity 1s ease-in-out;
+        &.hide-content {
+            opacity: 0;
+        }
+        &.blink .text-container {
+            animation: blink 3s infinite ease-in-out;
+        }
+    }
+
+    // text content
+    .text__content {
+        // white-space: pre;
+        $line-height: 1.5;
+        line-height: $line-height;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        opacity: 1;
+        font-family: "FZLanTingHeiS Medium", "Microsoft YaHei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei",
+            sans-serif;
+
+        .span-line {
+            display: inline-block;
+            width: 100%;
+            line-height: $line-height;
+            // text-align: center;
+        }
+    }
+
+    @keyframes blink {
+        0% {
+            opacity: 0;
+        }
+
+        48% {
+            opacity: 1;
+        }
+
+        52% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+}
+
+@keyframes shade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

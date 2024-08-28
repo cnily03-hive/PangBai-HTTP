@@ -1,0 +1,11 @@
+version: '3.8'
+name: pangbai-http
+
+services:
+  web:
+    build: .
+    image: ctf-pangbai-http:latest
+    environment:
+      - ICQ_FLAG=flag{test_real_flag}
+    ports:
+      - '53000:3000'

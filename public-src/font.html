@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Spider</title>
+    <style>
+        @font-face {
+            font-family: 'FZLanTingHeiS Medium';
+            src: url('./fonts/FZLanTingHeiS-Medium.ttf') format('truetype'),
+                url('./fonts/FZLanTingHeiS-Medium.woff') format('woff'),
+                url('./fonts/FZLanTingHeiS-Medium.woff2') format('woff2'),
+                url('./fonts/FZLanTingHeiS-Medium.eot') format('embedded-opentype'),
+                url('./fonts/FZLanTingHeiS-Medium.svg') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'FZLanTingHeiS Medium';
+        }
+    </style>
+</head>
+
+<body>
+    <span>{{ content }}</span>
+</body>
+
+</html>
