@@ -459,7 +459,7 @@ function run_cmd() {
     local cmd
     if [ -n "$opt_user" ]; then
         local c_cmdline="$(fmt_cmdline "$@")"
-        cmd=(su -p "$opt_user" -c "$c_cmdline")
+        cmd=(su "$opt_user" -c "$c_cmdline")
     else
         cmd=("$@")
     fi
