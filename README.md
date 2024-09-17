@@ -8,7 +8,7 @@ The challenge doesn't provide source code to participants.
 
 ## Deployment
 
-> [!IMPORTANT]
+> [!NOTE]
 > The FLAG is initially given by the environment variable `ICQ_FLAG`.
 
 Docker is provided. You can run the following command to start the environment quickly:
