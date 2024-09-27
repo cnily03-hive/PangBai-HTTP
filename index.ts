@@ -380,15 +380,30 @@ app.all('/', atLevel(6, async (c, next) => {
         '这里的前方是一方通行啊！Level 6 可不是容易的！'
     ]
 
+    const test_host_port = (host: any) => {
+        if (typeof host !== 'string') return false;
+        let port_str = host.slice(host.lastIndexOf(':') + 1).trim();
+        if (port_str.length > 0) {
+            if (/[^0-9]/.test(port_str)) return false;
+            let port = parseInt(port_str);
+            if (isNaN(port) || port < 0 || port > 65535) return false;
+        }
+        return true;
+    }
     const test_local_ip = (ip: any) => {
         if (typeof ip !== 'string') return false;
+        if (!test_host_port(ip)) return false;
+        ip = ip.slice(0, ip.lastIndexOf(':'));
+        ip = ip.slice(0, ip.lastIndexOf(':'));
         let test = /^127\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(ip);
         if (!test) return false;
         let parts = ip.split('.').map(Number);
-        return parts.every(p => p >= 0 && p <= 255);
+        return parts.every((p: number) => p >= 0 && p <= 255);
     };
     const test_local_host = (host: any) => {
         if (typeof host !== 'string') return false;
+        if (!test_host_port(host)) return false;
+        host = host.slice(0, host.lastIndexOf(':'));
         return /^localhost$/.test(host) || test_local_ip(host);
     }
     const test_local_uri = (uri: any) => {
