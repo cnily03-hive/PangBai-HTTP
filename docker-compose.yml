@@ -3,9 +3,11 @@ name: pangbai-http
 
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: ctf-pangbai-http:latest
     environment:
-      - ICQ_FLAG=flag{test_real_flag}
+      - FLAG=flag{test_real_flag}
     ports:
       - '53000:3000'

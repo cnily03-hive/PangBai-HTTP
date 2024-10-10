@@ -9,7 +9,7 @@ The challenge doesn't provide source code to participants.
 ## Deployment
 
 > [!NOTE]
-> The FLAG is initially given by the environment variable `ICQ_FLAG`.
+> If the development is at ichunqiu platform, please modify [docker-compose.yml](docker-compose.yml) to change `Dockerfile` into `Dockerfile.icq` and the environment variable `FLAG` to `ICQ_FLAG`.
 
 Docker is provided. You can run the following command to start the environment quickly:
 
