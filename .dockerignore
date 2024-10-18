@@ -11,6 +11,8 @@ Dockerfile.*
 .github
 .editorconfig
 
+node_modules/
+
 .cache
 .vite
 .astro
