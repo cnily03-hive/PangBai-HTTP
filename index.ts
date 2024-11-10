@@ -381,8 +381,9 @@ app.all('/', atLevel(6, async (c, next) => {
     ]
 
     const test_host_port = (host: any) => {
-        if (typeof host !== 'string') return false;
-        let port_str = host.slice(host.lastIndexOf(':') + 1).trim();
+        if (typeof host !== 'string' || host.length <= 0) return false;
+        let idx = host.lastIndexOf(':');
+        let port_str = idx >= 0 ? host.slice(idx + 1).trim() : '';
         if (port_str.length > 0) {
             if (/[^0-9]/.test(port_str)) return false;
             let port = parseInt(port_str);
@@ -391,23 +392,24 @@ app.all('/', atLevel(6, async (c, next) => {
         return true;
     }
     const test_local_ip = (ip: any) => {
-        if (typeof ip !== 'string') return false;
+        if (typeof ip !== 'string' || ip.length <= 0) return false;
         if (!test_host_port(ip)) return false;
-        ip = ip.slice(0, ip.lastIndexOf(':'));
-        ip = ip.slice(0, ip.lastIndexOf(':'));
+        let idx = ip.lastIndexOf(':');
+        if(idx >= 0) ip = ip.slice(0, idx);
         let test = /^127\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(ip);
         if (!test) return false;
         let parts = ip.split('.').map(Number);
         return parts.every((p: number) => p >= 0 && p <= 255);
     };
     const test_local_host = (host: any) => {
-        if (typeof host !== 'string') return false;
+        if (typeof host !== 'string' || host.length <= 0) return false;
         if (!test_host_port(host)) return false;
-        host = host.slice(0, host.lastIndexOf(':'));
+        let idx = host.lastIndexOf(':');
+        if(idx >= 0) host = host.slice(0, idx);
         return /^localhost$/.test(host) || test_local_ip(host);
     }
     const test_local_uri = (uri: any) => {
-        if (typeof uri !== 'string') return false;
+        if (typeof uri !== 'string' || uri.length <= 0) return false;
         const u = new URL(uri, 'http://1.1.1.1');
         return test_local_host(u.hostname);
     }
